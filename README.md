@@ -16,7 +16,7 @@ They can be refactored as well to make them more maintainable and/or readable.
 7. [Name the tests properly](#name-the-tests-properly)
 8. [Structure the tests properly](#structure-the-tests-properly)
 9. [Create new tests for every defect](#create-new-tests-for-every-defect)
-10. [Mock new Date() and Date.now](#mock-new-date-and-date.now)
+10. [Mock new Date and Date.now](#mock-new-date-and-date.now)
 11. [Mock out all external services and state](#mock-out-all-external-services-and-state)
 12. [Do not test external libraries](#do-not-test-external-libraries)
 13. [Do not mock everything](#do-not-mock-everything)
@@ -189,7 +189,7 @@ Identifying bugs is one of the crucial phases in the software development lifecy
 Tracking the bug ensures quality assurance of software as well as eliminates the risk of post-release glitches.
 This will prevent the same bug from happening again.
 
-## Mock new Date() and Date.now
+## Mock new Date and Date.now
 
 There are situations where `new Date()` or `Date.now` is used in application code.
 `Date.now()` returns the unix time, ie. "the number of milliseconds elapsed since January 1, 1970 00:00:00 UTC.".
