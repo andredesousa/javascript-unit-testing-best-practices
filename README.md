@@ -7,56 +7,56 @@ They can be refactored as well to make them more maintainable and/or readable.
 
 ## Table of Contents
 
-1. Follow conventions
-2. Follow Design Principles
-3. Follow the Arrange-Act-Assert pattern
-4. Follow Test-Driven Development
-5. Follow the FIRST Principles
-6. Describe expectations in a human language
-7. Name the tests properly
-8. Structure the tests properly
-9. Create new tests for every defect
-10. Mock new Date() and Date.now
-11. Mock out all external services and state
-12. Do not test external libraries
-13. Do not mock everything
-14. Do not test multiple concerns
-15. Do not skip unit tests
-16. Do not unit-test configuration settings
-17. Do not overuse variables
-18. Do not use static access
-19. Do not reuse production code
-20. Do not rewrite production logic
-21. Do not catch errors, expect them
-22. Do not test complex user interactions
-23. Do not Repeat Yourself
-24. Avoid toBeTruthy or toBeFalsy
-25. Avoid the All's
-26. Avoid mocks in favor of stubs and spies
-27. Avoid global test fixtures and seeds
-28. Avoid logic in the tests
-29. Prefer toBe over toEqual for primitive values
-30. Cover the general case and the edge cases
-31. Test only public methods
-32. Test the behaviour and not the implementation
-33. Test asynchronous code with async/await
-34. Test many input combinations
-35. Use lint rules
-36. Use realistic input data
-37. Use factory functions
-38. Use the prefixes “actual*” and “expected*”
-39. Tests should be isolated and atomic
-40. Design for lean testing
-41. Categorize tests under at least 2 levels
-42. Shorten the feedback loop
-43. Tag the tests
-44. Focus on test coverage
-45. Analyse the test coverage report
-46. Avoid duplicate coverage
-47. Measure logical coverage
-48. Follow the Testing Pyramid
-49. Parallelize test execution
-50. Know the testing framework API
+1. [Follow conventions](#follow-conventions)
+2. [Follow Design Principles](#follow-design-principles)
+3. [Follow the Arrange-Act-Assert pattern](#follow-the-arrange-act-assert-pattern)
+4. [Follow Test-Driven Development](#follow-test-driven-development)
+5. [Follow the FIRST Principles](#follow-the-first-principles)
+6. [Describe expectations in a human language](#describe-expectations-in-a-human-language)
+7. [Name the tests properly](#name-the-tests-properly)
+8. [Structure the tests properly](#structure-the-tests-properly)
+9. [Create new tests for every defect](#create-new-tests-for-every-defect)
+10. [Mock new Date() and Date.now](#mock-new-date-and-date.now)
+11. [Mock out all external services and state](#mock-out-all-external-services-and-state)
+12. [Do not test external libraries](#do-not-test-external-libraries)
+13. [Do not mock everything](#do-not-mock-everything)
+14. [Do not test multiple concerns](#do-not-test-multiple-concerns)
+15. [Do not skip unit tests](#do-not-skip-unit-tests)
+16. [Do not unit-test configuration settings](#do-not-unit-test-configuration-settings)
+17. [Do not overuse variables](#do-not-overuse-variables)
+18. [Do not use static access](#do-not-use-static-access)
+19. [Do not reuse production code](#do-not-reuse-production-code)
+20. [Do not rewrite production logic](#do-not-rewrite-production-logic)
+21. [Do not catch errors. Expect them](#do-not-catch-errors-expect-them)
+22. [Do not test complex user interactions](#do-not-test-complex-user-interactions)
+23. [Do not Repeat Yourself](#do-not-repeat-yourself)
+24. [Avoid toBeTruthy or toBeFalsy](#avoid-tobetruthy-or-tobefalsy)
+25. [Avoid the All](#avoid-the-all)
+26. [Avoid mocks in favor of stubs and spies](#avoid-mocks-in-favor-of-stubs-and-spies)
+27. [Avoid global test fixtures and seeds](#avoid-global-test-fixtures-and-seeds)
+28. [Avoid logic in the tests](#avoid-logic-in-the-tests)
+29. [Prefer toBe over toEqual for primitive values](#prefer-tobe-over-toequal-for-primitive-values)
+30. [Cover the general case and the edge cases](#cover-the-general-case-and-the-edge-cases)
+31. [Test only public methods](#test-only-public-methods)
+32. [Test the behaviour and not the implementation](#test-the-behaviour-and-not-the-implementation)
+33. [Test asynchronous code with async/await](#test-asynchronous-code-with-async-await)
+34. [Test many input combinations](#test-many-input-combinations)
+35. [Use lint rules](#use-lint-rules)
+36. [Use realistic input data](#use-realistic-input-data)
+37. [Use factory functions](#use-factory-functions])
+38. [Use the prefixes actual and expected](#use-the-prefixes-actual-and-expected)
+39. [Tests should be isolated and atomic](#tests-should-be-isolated-and-atomic)
+40. [Design for lean testing](#design-for-lean-testing)
+41. [Categorize tests under at least 2 levels](#categorize-tests-under-at-least-2-levels)
+42. [Shorten the feedback loop](#shorten-the-feedback-loop)
+43. [Tag the tests](#tag-the-tests)
+44. [Focus on test coverage](#focus-on-test-coverage)
+45. [Analyse the test coverage report](#analyse-the-test-coverage-report)
+46. [Avoid duplicate coverage](#avoid-duplicate-coverage)
+47. [Measure logical coverage](#measure-logical-coverage)
+48. [Follow the Testing Pyramid](#follow-the-testing-pyramid)
+49. [Parallelize test execution](#parallelize-test-execution)
+50. [Know the testing framework API](#know-the-testing-framework-api)
 
 ## Follow conventions
 
@@ -192,7 +192,7 @@ This will prevent the same bug from happening again.
 ## Mock new Date() and Date.now
 
 There are situations where `new Date()` or `Date.now` is used in application code.
-`Date.now()` returns the unix time, ie. “the number of milliseconds elapsed since January 1, 1970 00:00:00 UTC.”.
+`Date.now()` returns the unix time, ie. "the number of milliseconds elapsed since January 1, 1970 00:00:00 UTC.".
 `new Date()` returns a new Date object, and behaves differently based on the input passed to it.
 If called with nothing, it returns the current Date.
 We must mock dates to obtain deterministic tests.
@@ -203,14 +203,14 @@ Dates are faked by default in [Jest](https://jestjs.io/) environments.
 ## Mock out all external services and state
 
 When we run tests, the last thing we want to do is modify the external resources.
-We therefore need to make sure that our unit tests are “stateless,” so that we can run them whenever we need to, without cleaning our development environment for test conditions.
-Otherwise, behavior in those external services overlaps multiple tests, and state data means that different unit tests can influence each other’s outcome.
+We therefore need to make sure that our unit tests are "stateless," so that we can run them whenever we need to, without cleaning our development environment for test conditions.
+Otherwise, behavior in those external services overlaps multiple tests, and state data means that different unit tests can influence each other's outcome.
 An additional benefit of using a mock environment is that tests run there much faster than they would via the external resources that are already currently functioning in real time.
 
 ## Do not test external libraries
 
-Libraries are an integral part of any JavaScript developer’s life.
-The general advice would be to not test library internals but expect that the library knows what it’s supposed to do and has test coverage on its own.
+Libraries are an integral part of any JavaScript developer's life.
+The general advice would be to not test library internals but expect that the library knows what it's supposed to do and has test coverage on its own.
 For example, we have a function that does nothing else but invoking the library function.
 There is no value in this, besides, it is adding code to the test suite.
 Better is to test it in the way the user interacts with it.
@@ -218,7 +218,7 @@ Better is to test it in the way the user interacts with it.
 ## Do not mock everything
 
 In unit tests it is supposed to mock all external dependencies.
-However, we don’t need to mock everything.
+However, we don't need to mock everything.
 The idea to keep in mind is that dependencies can still be "real" objects.
 Consider using the "real" version of the objects if:
 
@@ -265,18 +265,18 @@ These rules will disallow use of disabled and focused tests.
 
 ## Do not unit-test configuration settings
 
-The configuration settings aren’t part of any unit of code.
-That’s why we extracted the setting out in some properties file.
+The configuration settings aren't part of any unit of code.
+That's why we extracted the setting out in some properties file.
 Even if we could write a unit test that inspects the configuration, we should write only single or two test cases for verifying that configuration loading code is working.
-Testing all the configuration settings in each separate test cases proves only one thing: “We know how to copy and paste”.
+Testing all the configuration settings in each separate test cases proves only one thing: "We know how to copy and paste".
 To avoid this scenario, we can use [snapshot tests](https://jestjs.io/docs/snapshot-testing) to check the entire contents of the file.
 
 ## Do not overuse variables
 
 A usual reflex of a developer is to extract values that are used multiple times to variables.
 Unfortunately, this significantly bloats the test code.
-Moreover, given a test failure message, it’s harder to trace the value back to the relevant line of code.
-If we keep the tests short, it’s no problem to see where the same values are used.
+Moreover, given a test failure message, it's harder to trace the value back to the relevant line of code.
+If we keep the tests short, it's no problem to see where the same values are used.
 For more details, see the next example:
 
 ```javascript
@@ -292,7 +292,7 @@ it('contains the item', () => {
 Static access is an anti-pattern.
 First, it obfuscates dependencies and side-effects making the whole code harder to understand and more error-prone.
 Second, static access harms testability.
-We can’t exchange the objects anymore.
+We can't exchange the objects anymore.
 But in a test, we want to use mocks or use the real objects with a different configuration.
 So instead of access code statically, put it into non-static methods, instantiate the class and pass the object to the constructor of the object.
 For more details, see the next example:
@@ -312,7 +312,7 @@ class ProductController {
 ## Do not reuse production code
 
 Test should test the production code and not reuse it.
-If we reuse production code in a test, we might miss a bug that is introduced in the reused code because we don’t test this code anymore.
+If we reuse production code in a test, we might miss a bug that is introduced in the reused code because we don't test this code anymore.
 Instead, we think in terms of input and output when writing tests.
 The test sets the input and compares the actual output with hard-coded values.
 Most of the time, code reuse is not required.
@@ -320,8 +320,8 @@ Most of the time, code reuse is not required.
 ## Do not rewrite production logic
 
 Mapping code is a common example where the logic in tests is rewritten.
-So let’s assume our tests contains a function `mapEntityToDto()` which result is used to assert that a returned DTO contains the same values than the entities that have been inserted at the beginning of the test.
-In this case, we’ll most likely end up rewriting the production logic in the test code, which can contain bugs.
+So let's assume our tests contains a function `mapEntityToDto()` which result is used to assert that a returned DTO contains the same values than the entities that have been inserted at the beginning of the test.
+In this case, we'll most likely end up rewriting the production logic in the test code, which can contain bugs.
 
 ```javascript
 it('#requestProductById returns a ProductDTO', () => {
@@ -334,9 +334,9 @@ it('#requestProductById returns a ProductDTO', () => {
 ```
 
 The solution is to compare the `actualDTO` with a manually created reference object with hard-coded values.
-That’s dead-simple, easy to understand and less error-prone.
+That's dead-simple, easy to understand and less error-prone.
 
-## Do not catch errors, expect them
+## Do not catch errors. Expect them
 
 When trying to assert that some input triggers an error, it might look right to use try-catch-finally and asserts that the catch clause was entered.
 The result is an awkward and verbose test case that hides the simple test intent and the result expectations.
@@ -348,7 +348,7 @@ it('adds a user in memory', () => {
 });
 ```
 
-It’s recommended to also ensure the exception contains a property that tells the error type, otherwise given just a generic error the application won’t be able to do much rather than show a disappointing message to the user.
+It's recommended to also ensure the exception contains a property that tells the error type, otherwise given just a generic error the application won't be able to do much rather than show a disappointing message to the user.
 
 ## Do not test complex user interactions
 
@@ -402,7 +402,7 @@ For example, `expect(someBoolean).toBeFalsy()` passes when `someBoolean === null
 Both have the tricky `toBeDefined` matcher that can produce false positive test.
 Because it validates the given value for undefined only.
 
-## Avoid the All's
+## Avoid the All
 
 Prefer `beforeEach/afterEach` blocks over `beforeAll/afterAll` ones.
 The latter are not reset between tests.
@@ -410,8 +410,8 @@ Replacing `All` blocks by `Each` blocks we will avoid accidental state leak, enf
 
 ## Avoid mocks in favor of stubs and spies
 
-We got to stub some dependencies since we can’t do everything in our tests as we do in a real environment.
-Our tests shouldn’t depend on anything outside and they should be isolated.
+We got to stub some dependencies since we can't do everything in our tests as we do in a real environment.
+Our tests shouldn't depend on anything outside and they should be isolated.
 Therefore, we stub all the dependencies that commit side effects so that we can just test what we want to test in isolation.
 We just stub any network request code.
 We watch what we want to check is called with spies.
@@ -421,16 +421,16 @@ We avoid mock any server-side interactions with the spies approach.
 
 We should create our data per test and clean them out after each test.
 This way, we always get a clean environment for our tests.
-Therefore, the tests won’t depend on each other.
-This is important since we’ll run into problems when tests depend on each other.
-If performance becomes a concern with creating data for each test, then we’ve to simplify the data.
+Therefore, the tests won't depend on each other.
+This is important since we'll run into problems when tests depend on each other.
+If performance becomes a concern with creating data for each test, then we've to simplify the data.
 So, if we test with database interaction, we got to remove all the data after each test.
 
 ## Avoid logic in the tests
 
 The logic of code inherently requires a premise, a condition, and a conclusion.
-If a test were to include logic, therefore, it would not be a “one-concern” test.
-Furthermore, we simply don’t want to write bugs into our tests, and we’re at risk of that when we incorporate logic.
+If a test were to include logic, therefore, it would not be a "one-concern" test.
+Furthermore, we simply don't want to write bugs into our tests, and we're at risk of that when we incorporate logic.
 We always use simple statements.
 Don't use loops, switch cases and/or conditionals.
 If we do, we add a possible entry point for bugs in the test itself:
@@ -444,7 +444,7 @@ It will give a nice output of all possible cases, improving maintainability.
 ## Prefer toBe over toEqual for primitive values
 
 [Jasmine](https://jasmine.github.io/) and [Jest](https://jestjs.io/) have `toBe` and `toEqual` matchers.
-As `toBe` uses `Object.is` to compare values, it’s faster (by default) than using `toEqual`.
+As `toBe` uses `Object.is` to compare values, it's faster (by default) than using `toEqual`.
 While the latter eventually falls back to leverage `Object.is`, for primitive values, it should only be used when complex objects need a comparison.
 `toEqual` recursively checks every field of an object or array.
 
@@ -482,7 +482,7 @@ it('adds a user in memory', () => {
 ## Test asynchronous code with async/await
 
 When testing Promises we should always make sure that the test is asynchronous, and rejections are handled.
-It’s recommended to use the `async/await` syntax in the test suite:
+It's recommended to use the `async/await` syntax in the test suite:
 
 ```javascript
 it('tests a promise', async () => {
@@ -500,7 +500,7 @@ They should only be used when testing callback-based code.
 Typically, we choose a few input samples for each test.
 However, in production, an API that is called with 5 parameters can be invoked with thousands of different permutations.
 We should test many input combinations.
-This way, we won’t only choose cases that we know will make our test pass.
+This way, we won't only choose cases that we know will make our test pass.
 We can make the values random.
 For example, with the [fast-check](https://www.npmjs.com/package/fast-check) or [jsverify](https://www.npmjs.com/package/jsverify) library, we can create random combinations of data for our tests.
 
@@ -526,18 +526,18 @@ Use dedicated libraries like [Faker](https://www.npmjs.com/package/faker) to gen
 
 A factory function is any function which is not a class or constructor that returns a (presumably new) object.
 In JavaScript, any function can return an object.
-When it does so without the new keyword, it’s a factory function.
+When it does so without the new keyword, it's a factory function.
 Factories can:
 
 - Help reduce the setup code, especially if we use dependency injection ot to encapsulate complex code;
 - Make each test more readable, since the creation is a single function call that can be in the test itself instead of the setup;
 - Provide flexibility when creating new instances (setting an initial state, for example).
 
-## Use the prefixes “actual*” and “expected*”
+## Use the prefixes actual and expected
 
 If we are going to use variables in an equals assertion, prefix the variables with `actual` and `expected`.
 This increases the readability and clarifies the intention of the variable.
-Moreover, it’s harder to mix them up in the equals assertion.
+Moreover, it's harder to mix them up in the equals assertion.
 
 ```javascript
 it('appends x to the end of the Array', () => {
@@ -567,7 +567,7 @@ Test only as much as needed, strive to keep it nimble, sometimes it's even worth
 ## Categorize tests under at least 2 levels
 
 Apply some structure to the test suite so an occasional visitor could easily understand the requirements and the various scenarios that are being tested.
-A common method for this is by placing at least 2 “describe” blocks above the tests.
+A common method for this is by placing at least 2 "describe" blocks above the tests.
 The first is for the name of the unit under test and the second for additional level of categorization like the scenario or custom categories.
 Doing so will also greatly improve the test reports.
 In addition, it will get much easier for a developer to navigate through the code of a suite with many tests.
@@ -576,7 +576,7 @@ In addition, it will get much easier for a developer to navigate through the cod
 
 An efficient testing process constitutes many and iterative loops: (1) try-outs -> (2) feedback -> (3) refactor.
 The faster the feedback is the more improvement iterations a developer can perform per-module and perfect the results.
-We can get feedback faster is we run CI locally on the developer’s machine.
+We can get feedback faster is we run CI locally on the developer's machine.
 So, we can write our code, get feedback, and then make changes as needed.
 
 ## Tag the tests
@@ -598,12 +598,12 @@ Although most of the testing enthusiasts claim that the right coverage threshold
 Some issues sneak just under the radar and are hard to find using traditional tools.
 These are not really bugs but more of surprising application behaviour that might have a severe impact.
 For example, often some code areas are never or rarely being invoked.
-If we don’t know which parts of our code are left un-tested, we don’t know where the issues might come from.
+If we don't know which parts of our code are left un-tested, we don't know where the issues might come from.
 
 ## Avoid duplicate coverage
 
 Don´t create tests for features coverage by other tests.
-Let’s say we’ve created a new UI component.
+Let's say we've created a new UI component.
 If we can cover the functionality in a unit test, we should do it.
 Unit tests are generally easier to maintain, less flakey, and less expensive to run in our CI pipeline.
 UI tests should be covering the areas only they can cover.
@@ -613,10 +613,10 @@ Usually, these are the big-picture user stories that span many components and vi
 
 The traditional coverage metric often lies.
 It may show us 100% code coverage, but none of our functions, even not one, return the right response.
-It simply measures over which lines of code the test visited, but it doesn’t check if the tests actually tested anything.
+It simply measures over which lines of code the test visited, but it doesn't check if the tests actually tested anything.
 We can use [mutation testing](https://en.wikipedia.org/wiki/Mutation_testing) to tell which part of our app is tested rather than just visited.
 To do that, we can intentionally change the values to check the outcomes as a result of them.
-We may uncover cases that should fail that doesn’t come up that we may have not covered yet.
+We may uncover cases that should fail that doesn't come up that we may have not covered yet.
 
 ## Follow the Testing Pyramid
 
