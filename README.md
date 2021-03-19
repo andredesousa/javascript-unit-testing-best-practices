@@ -31,7 +31,7 @@ They can be refactored as well to make them more maintainable and/or readable.
 22. [Do not test complex user interactions](#do-not-test-complex-user-interactions)
 23. [Do not Repeat Yourself](#do-not-repeat-yourself)
 24. [Avoid toBeTruthy or toBeFalsy](#avoid-tobetruthy-or-tobefalsy)
-25. [Avoid the All](#avoid-the-all)
+25. [Avoid the All's](#avoid-the-alls)
 26. [Avoid mocks in favor of stubs and spies](#avoid-mocks-in-favor-of-stubs-and-spies)
 27. [Avoid global test fixtures and seeds](#avoid-global-test-fixtures-and-seeds)
 28. [Avoid logic in the tests](#avoid-logic-in-the-tests)
@@ -39,7 +39,7 @@ They can be refactored as well to make them more maintainable and/or readable.
 30. [Cover the general case and the edge cases](#cover-the-general-case-and-the-edge-cases)
 31. [Test only public methods](#test-only-public-methods)
 32. [Test the behaviour and not the implementation](#test-the-behaviour-and-not-the-implementation)
-33. [Test asynchronous code with async/await](#test-asynchronous-code-with-async-await)
+33. [Test asynchronous code with async/await](#test-asynchronous-code-with-asyncawait)
 34. [Test many input combinations](#test-many-input-combinations)
 35. [Use lint rules](#use-lint-rules)
 36. [Use realistic input data](#use-realistic-input-data)
@@ -402,7 +402,7 @@ For example, `expect(someBoolean).toBeFalsy()` passes when `someBoolean === null
 Both have the tricky `toBeDefined` matcher that can produce false positive test.
 Because it validates the given value for undefined only.
 
-## Avoid the All
+## Avoid the All's
 
 Prefer `beforeEach/afterEach` blocks over `beforeAll/afterAll` ones.
 The latter are not reset between tests.
