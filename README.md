@@ -44,7 +44,7 @@ They can be refactored as well to make them more maintainable and/or readable.
 35. [Use lint rules](#use-lint-rules)
 36. [Use realistic input data](#use-realistic-input-data)
 37. [Use factory functions](#use-factory-functions)
-38. [Use the prefixes actual and expected](#use-the-prefixes-actual-and-expected)
+38. [Use the prefixes "actual" and "expected"](#use-the-prefixes-actual-and-expected)
 39. [Tests should be isolated and atomic](#tests-should-be-isolated-and-atomic)
 40. [Design for lean testing](#design-for-lean-testing)
 41. [Categorize tests under at least 2 levels](#categorize-tests-under-at-least-2-levels)
@@ -533,7 +533,7 @@ Factories can:
 - Make each test more readable, since the creation is a single function call that can be in the test itself instead of the setup;
 - Provide flexibility when creating new instances (setting an initial state, for example).
 
-## Use the prefixes actual and expected
+## Use the prefixes "actual" and "expected"
 
 If we are going to use variables in an equals assertion, prefix the variables with `actual` and `expected`.
 This increases the readability and clarifies the intention of the variable.
