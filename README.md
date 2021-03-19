@@ -16,7 +16,7 @@ They can be refactored as well to make them more maintainable and/or readable.
 7. [Name the tests properly](#name-the-tests-properly)
 8. [Structure the tests properly](#structure-the-tests-properly)
 9. [Create new tests for every defect](#create-new-tests-for-every-defect)
-10. [Mock new Date() and Date.now](#mock-new-date-and-date.now)
+10. [Mock new Date() and Date.now](#mock-new-date-and-datenow)
 11. [Mock out all external services and state](#mock-out-all-external-services-and-state)
 12. [Do not test external libraries](#do-not-test-external-libraries)
 13. [Do not mock everything](#do-not-mock-everything)
@@ -43,7 +43,7 @@ They can be refactored as well to make them more maintainable and/or readable.
 34. [Test many input combinations](#test-many-input-combinations)
 35. [Use lint rules](#use-lint-rules)
 36. [Use realistic input data](#use-realistic-input-data)
-37. [Use factory functions](#use-factory-functions])
+37. [Use factory functions](#use-factory-functions)
 38. [Use the prefixes actual and expected](#use-the-prefixes-actual-and-expected)
 39. [Tests should be isolated and atomic](#tests-should-be-isolated-and-atomic)
 40. [Design for lean testing](#design-for-lean-testing)
@@ -164,16 +164,16 @@ For more details:
 
 ```javascript
 describe('A set of functionalities', () => {
-  it('should do something nice', () => {});
+  it('does something nice', () => {});
 
   describe('A subset of functionalities', () => {
-    it('should do something great', () => {});
+    it('does something great', () => {});
 
-    it('should do something awesome', () => {});
+    it('does something awesome', () => {});
   });
 
   describe('Another subset of functionalities', () => {
-    it('should also do something great', () => {});
+    it('also do something great', () => {});
   });
 });
 ```
@@ -295,7 +295,7 @@ Second, static access harms testability.
 We can't exchange the objects anymore.
 But in a test, we want to use mocks or use the real objects with a different configuration.
 So instead of access code statically, put it into non-static methods, instantiate the class and pass the object to the constructor of the object.
-For more details, see the next example:
+Do as in the next example:
 
 ```javascript
 class ProductController {
