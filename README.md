@@ -666,3 +666,12 @@ it('calls once a method with the proper arguments', () => {
   expect(foo.bar).toHaveBeenCalledWith('baz');
 });
 ```
+
+## Bibliography
+
+- [A guide to unit testing in JavaScript](https://github.com/mawrkus/js-unit-testing-guide)
+- [Frontend testing standards and style guidelines](https://docs.gitlab.com/ee/development/testing_guide/frontend_testing.html)
+- [Jasmine Style Guide](https://github.com/CareMessagePlatform/jasmine-styleguide)
+- [Javascript Testing Best Practices](https://github.com/goldbergyoni/javascript-testing-best-practices)
+- [JavaScript Unit Test Best Practices](https://www.amazon.com/dp/B08D8T6CYZ/ref=pe_385040_118058080_TE_M1DP)
+- [Testing standards and style guidelines](https://docs.gitlab.com/ee/development/testing_guide/index.html)
